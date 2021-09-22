@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Calculator</title>
+		<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Fredoka+One&display=swap" rel="stylesheet">
+		<style>
+			body { margin: 0; height: 100vh; display: flex; }
+			#calculator { 
+				margin: auto;
+				padding: 30px; 
+				border-radius: 10px;
+				box-shadow: 0 0 10px black;
+				background: #efefef;
+			}
+			h1 {
+				font: bold 2em Arial;
+				color: #666;
+			}
+			#display {
+				width: 200px;
+				margin: 10px 0;
+				padding: 10px 20px;
+				border-radius: 10px;
+				border: 1px solid #666;
+				box-shadow: 2px 2px 0 #999 inset; 
+				outline: 0;
+				text-align: right;
+				font: 1.6em 'Audiowide', cursive;
+				color: #666;
+			}
+			button {
+				margin: 5px;
+				width: 50px;
+				height: 50px;
+				border-radius: 10px;
+				border: 1px solid #666;
+				box-shadow: 1px 1px 0 #666;
+				outline: 0;
+				font: 1.2em 'Fredoka One', cursive;
+				color: #444;
+			}
+			button:active {
+				box-shadow: 0 0 #666;
+			}
+			.dbl {width: 115px; background: orange;}
+		</style>
+    </head>
+    <body>
+        <div id="calculator">
+			<h1>Calculator</h1>
+			<input id="display" type="text" />
+			<div>
+				<button onclick="show('1')">1</button>
+				<button onclick="show('2')">2</button>
+				<button onclick="show('3')">3</button>
+				<button onclick="back()">&#8678;</button>
+			</div>
+			<div>
+				<button onclick="show('4')">4</button>
+				<button onclick="show('5')">5</button>
+				<button onclick="show('6')">6</button>
+				<button onclick="show('+')">+</button>
+			</div>
+			<div>
+				<button onclick="show('7')">7</button>
+				<button onclick="show('8')">8</button>
+				<button onclick="show('9')">9</button>
+				<button onclick="show('-')">-</button>
+			</div>
+			<div>
+				<button onclick="show('.')">.</button>
+				<button onclick="show('0')">0</button>
+				<button onclick="show('00')">00</button>
+				<button onclick="show('*')">&#215;</button>
+			</div>
+			<div>
+				<button onclick="clean()">C</button>
+				<button onclick="calc()" class="dbl">=</button>
+				<button onclick="show('/')">&#247;</button>
+			</div>
+		</div>
+		
+        <script>
+			const display = document.getElementById("display");
+			
+			function show(x) {
+				display.value += x; 
+			}
+			function calc() {
+				display.value = eval(display.value);
+			}
+			function clean() {
+				display.value = "";
+			}
+			function back() {
+				display.value = display.value.slice(0,-1);
+			}
+        </script>
+    </body>
+</html>
+
+
+
+
